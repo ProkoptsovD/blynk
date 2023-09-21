@@ -1,0 +1,8 @@
+.scrollArea {
+  overflow-y: scroll;
+}
+
+/* width */
+.scrollArea::-webkit-scrollbar {
+  width: 0px;
+}

@@ -1,0 +1,15 @@
+.button {
+  display: block;
+  margin-left: auto;
+  margin-top: 16px;
+  transition: background-color 0.125s ease-in, color 0.125s ease-in;
+}
+
+.button:hover {
+  background-color: var(--main-color);
+  color: #ffffff;
+}
+
+.textarea textarea {
+  resize: none;
+}

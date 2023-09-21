@@ -1,0 +1,65 @@
+.wrapper {
+  --size: 25px;
+
+  display: flex;
+  align-items: center;
+  padding: 8px 8px 8px 12px;
+  border-radius: 8px;
+  border-left: 2px solid transparent;
+  transition: box-shadow 0.15s ease-in, border-left 0.1s linear;
+}
+
+.wrapper:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 9px #5a5454;
+}
+
+.title {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: initial;
+  flex-grow: 2;
+}
+
+.badge {
+  color: #c8c8c8;
+  border-radius: 6px;
+  background-color: #6f6f6f;
+  display: flex;
+  height: var(--size);
+  margin-left: auto;
+  width: var(--size);
+  aspect-ratio: 1 / 1;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  margin-right: 20px;
+  margin-left: 8px;
+}
+
+.deleteBtn {
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  background-color: transparent;
+}
+
+.deleteBtn:hover svg {
+  fill: #ff0000;
+}
+
+.deleteBtn svg {
+  fill: #e24a4a;
+  height: var(--size);
+  width: var(--size);
+  transition: fill 0.15s ease-in;
+}
+
+.active {
+  border-left: 2px solid var(--main-color);
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+}

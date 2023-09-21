@@ -1,0 +1,32 @@
+.wrapperInner {
+  padding-top: 16px;
+}
+
+.titleWrapper,
+.subtitleWrapper {
+  text-align: left;
+}
+
+.titleWrapper p {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.subtitleWrapper {
+  color: var(--sidebar-color);
+  margin-bottom: 20px;
+}
+
+.subtitleWrapper > :first-child {
+  font-size: 22px;
+}
+
+.subtitleWrapper > :last-child {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.wrapper .divider {
+  height: 1px;
+  background-color: #666666;
+}
