@@ -1,0 +1,27 @@
+.form {
+  display: flex;
+  column-gap: 4px;
+}
+
+.form input {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  color: #ffffff;
+}
+
+.form .button {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  background-color: var(--bg-color);
+  color: #ffffff;
+  transition: background-color 0.15s ease-in;
+  max-height: 55px;
+}
+
+.form .button:hover {
+  background-color: var(--main-color);
+}
+
+.listItem {
+  padding-inline: 4px;
+}

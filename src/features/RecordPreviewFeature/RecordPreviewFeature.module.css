@@ -1,0 +1,15 @@
+.wrapper {
+}
+
+.mb {
+  margin-bottom: 32px;
+}
+
+.commentSectionTitle {
+  display: block;
+  font-weight: 600;
+  font-size: 32px;
+  color: var(--sidebar-color);
+  text-align: left;
+  margin-bottom: 16px;
+}
