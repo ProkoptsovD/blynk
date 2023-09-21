@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "http://prokoptsovd.github.io/blynk/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
