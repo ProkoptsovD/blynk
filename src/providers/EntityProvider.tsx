@@ -8,6 +8,7 @@ interface EntityContext {
   deleteRecord(id: Uuid): void
   markAsActive(id: Uuid): void
   entities: Entity[]
+  activeEntity?: Entity
 }
 
 export const EntityContext = createContext<EntityContext | null>(null)
@@ -22,6 +23,9 @@ export function EntityContextProvider({
   children
 }: EntityContextProviderProps) {
   const [entities, setEntities] = useState<Entity[]>(initialEntities)
+  const [activeEntity, setActiveEntity] = useState<Entity | undefined>(
+    apiService.getActiveEntity
+  )
 
   const createRecord = useCallback((record: CreateEntityDTO) => {
     const entities = apiService.createEntity(record)
@@ -29,18 +33,29 @@ export function EntityContextProvider({
   }, [])
 
   const createComment = useCallback((comment: CreateCommentDTO) => {
-    const entities = apiService.createComment(comment)
+    const { entities, entity } = apiService.createComment(comment)
     setEntities(entities)
+    setActiveEntity(entity)
   }, [])
 
-  const deleteRecord = useCallback((id: Uuid) => {
-    const entities = apiService.removeEntity(id)
-    setEntities(entities)
-  }, [])
+  const deleteRecord = useCallback(
+    (id: Uuid) => {
+      const entities = apiService.removeEntity(id)
+      setEntities(entities)
+
+      const wasActiveEntityDeleted = activeEntity?.id === id
+
+      if (!wasActiveEntityDeleted) return
+
+      setActiveEntity(undefined)
+    },
+    [activeEntity]
+  )
 
   const markAsActive = useCallback((id: Uuid) => {
-    const entities = apiService.markEntityAsActive(id)
+    const { entities, entity } = apiService.markEntityAsActive(id)
     setEntities(entities)
+    setActiveEntity(entity)
   }, [])
 
   const context: EntityContext = useMemo(
@@ -49,9 +64,17 @@ export function EntityContextProvider({
       createRecord,
       createComment,
       deleteRecord,
-      markAsActive
+      markAsActive,
+      activeEntity
     }),
-    [entities, createRecord, createComment, deleteRecord, markAsActive]
+    [
+      entities,
+      createRecord,
+      createComment,
+      deleteRecord,
+      markAsActive,
+      activeEntity
+    ]
   )
 
   return (

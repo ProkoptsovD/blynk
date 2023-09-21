@@ -1,6 +1,17 @@
+import RecordPreviewFeature from './features/RecordPreviewFeature'
+import EntitiesFeature from './features/EntitiesFeature'
 import MainLayout from './layouts/MainLayout'
-import './styles/global.css'
+
+import { EntityContextProvider } from './providers/EntityProvider'
+
+import './styles/index.css'
 
 export default function App() {
-  return <MainLayout>Works</MainLayout>
+  return (
+    <EntityContextProvider>
+      <MainLayout slots={{ sidebar: <EntitiesFeature /> }}>
+        <RecordPreviewFeature />
+      </MainLayout>
+    </EntityContextProvider>
+  )
 }
