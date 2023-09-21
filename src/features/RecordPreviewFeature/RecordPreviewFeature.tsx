@@ -21,7 +21,7 @@ export default function RecordPreviewFeature() {
     <div className={styles.wrapper}>
       <Record title={title} id={id} className={styles.mb} />
 
-      <div>
+      <div className="container">
         <label className={styles.commentSectionTitle}>Comments</label>
 
         <AddComment
