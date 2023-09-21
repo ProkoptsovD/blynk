@@ -1,0 +1,45 @@
+.title {
+  display: flex;
+  gap: 8px;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  align-items: flex-start;
+}
+
+.title:hover {
+  cursor: pointer;
+}
+
+.button {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+.button svg {
+  width: 10px;
+  fill: var(--sidebar-color);
+  transform-origin: center;
+  transform: rotate(0deg);
+  transition: transform 0.15s ease-in;
+}
+
+.button.opened svg {
+  transform: rotate(180deg);
+}
+
+.content {
+  overflow: hidden;
+  transition: height 0.15s linear;
+}
+
+.content * {
+  pointer-events: none;
+}
+
+.content.opened * {
+  pointer-events: initial;
+}

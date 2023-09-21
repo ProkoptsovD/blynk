@@ -1,0 +1,9 @@
+.wrapper {
+  position: relative;
+}
+
+.error {
+  position: absolute;
+  left: 10px;
+  top: 100%;
+}
